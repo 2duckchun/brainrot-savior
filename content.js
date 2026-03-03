@@ -56,3 +56,32 @@ if (document.body) {
 } else {
   document.addEventListener('DOMContentLoaded', startObserver);
 }
+
+// === 5초 건너뛰기(→) 차단 ===
+document.addEventListener('keydown', function(event) {
+  if (event.key !== 'ArrowRight') return;
+
+  // input, textarea, contenteditable 에서는 허용
+  const activeEl = document.activeElement;
+  if (activeEl) {
+    const tag = activeEl.tagName.toLowerCase();
+    if (tag === 'input' || tag === 'textarea' || activeEl.isContentEditable) {
+      return;
+    }
+  }
+
+  // 영상 플레이어가 페이지에 존재하고 활성 상태인지 확인
+  const player = document.querySelector('#movie_player');
+  if (!player) return;
+
+  // 플레이어 내부에 포커스가 있거나, body/document에 포커스가 있을 때 차단
+  // (YouTube는 플레이어 외부 클릭 시에도 키보드가 플레이어에 전달됨)
+  const isPlayerFocused = player.contains(activeEl) ||
+                          activeEl === document.body ||
+                          activeEl === document.documentElement;
+
+  if (isPlayerFocused) {
+    event.preventDefault();
+    event.stopImmediatePropagation();
+  }
+}, true);
