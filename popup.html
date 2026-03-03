@@ -2,11 +2,35 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="popup.css">
 </head>
 <body>
   <div id="app">
-    <h1>Brainrot Savior</h1>
+    <header>
+      <h1>Brainrot Savior</h1>
+      <p class="subtitle">YouTube 사용 시간</p>
+    </header>
+
+    <section class="summary">
+      <div class="stat-card">
+        <span class="stat-label">오늘</span>
+        <span class="stat-value" id="today-time">-</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-label">이번 주</span>
+        <span class="stat-value" id="week-time">-</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-label">이번 달</span>
+        <span class="stat-value" id="month-time">-</span>
+      </div>
+    </section>
+
+    <section class="chart-section">
+      <h2>최근 7일</h2>
+      <div class="chart" id="chart"></div>
+    </section>
   </div>
   <script src="popup.js"></script>
 </body>
