@@ -57,9 +57,10 @@ if (document.body) {
   document.addEventListener('DOMContentLoaded', startObserver);
 }
 
-// === 5초 건너뛰기(→) 차단 ===
+// === 화살표 키 차단 (→ 5초 건너뛰기, ↑ 볼륨 업, ↓ 볼륨 다운) ===
+const BLOCKED_KEYS = new Set(['ArrowRight', 'ArrowUp', 'ArrowDown']);
 document.addEventListener('keydown', function(event) {
-  if (event.key !== 'ArrowRight') return;
+  if (!BLOCKED_KEYS.has(event.key)) return;
 
   // input, textarea, contenteditable 에서는 허용
   const activeEl = document.activeElement;
