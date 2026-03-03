@@ -3,7 +3,7 @@
   "name": "Brainrot Savior",
   "version": "1.0.0",
   "description": "YouTube 사용 습관을 개선합니다. Shorts 차단, 건너뛰기 차단, 사용 시간 추적.",
-  "permissions": ["storage", "tabs", "activeTab"],
+  "permissions": ["storage", "tabs", "activeTab", "alarms"],
   "host_permissions": ["*://*.youtube.com/*"],
   "background": {
     "service_worker": "background.js"
