@@ -21,11 +21,17 @@ function isYouTubeUrl(url) {
   }
 }
 
+let incrementing = false;
 async function incrementTime() {
-  const key = getTodayKey();
-  const result = await chrome.storage.local.get(key);
-  const currentSeconds = result[key] || 0;
-  await chrome.storage.local.set({ [key]: currentSeconds + 1 });
+  if (incrementing) return;
+  incrementing = true;
+  try {
+    const key = getTodayKey();
+    const result = await chrome.storage.local.get(key);
+    await chrome.storage.local.set({ [key]: (result[key] || 0) + 1 });
+  } finally {
+    incrementing = false;
+  }
 }
 
 function startTracking() {

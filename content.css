@@ -43,7 +43,3 @@ a[title="Shorts"][href="/shorts"] {
   opacity: 0.85;
   transition: opacity 0.2s;
 }
-
-#brainrot-savior-badge:hover {
-  opacity: 1;
-}
