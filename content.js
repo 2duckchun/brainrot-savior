@@ -85,3 +85,44 @@ document.addEventListener('keydown', function(event) {
     event.stopImmediatePropagation();
   }
 }, true);
+
+// === 사용 시간 배지 ===
+function formatTime(totalSeconds) {
+  const hours = Math.floor(totalSeconds / 3600);
+  const minutes = Math.floor((totalSeconds % 3600) / 60);
+  if (hours > 0) {
+    return `오늘 ${hours}시간 ${minutes}분`;
+  }
+  return `오늘 ${minutes}분`;
+}
+
+function createBadge() {
+  if (document.getElementById('brainrot-savior-badge')) return;
+  const badge = document.createElement('div');
+  badge.id = 'brainrot-savior-badge';
+  badge.textContent = '오늘 0분';
+  document.body.appendChild(badge);
+}
+
+function updateBadge() {
+  chrome.runtime.sendMessage({ type: 'GET_TODAY_TIME' }, (response) => {
+    if (chrome.runtime.lastError) return;
+    const badge = document.getElementById('brainrot-savior-badge');
+    if (badge && response) {
+      badge.textContent = formatTime(response.seconds);
+    }
+  });
+}
+
+// 배지 삽입 및 주기적 업데이트
+function initBadge() {
+  createBadge();
+  updateBadge();
+  setInterval(updateBadge, 10000); // 10초마다 업데이트
+}
+
+if (document.body) {
+  initBadge();
+} else {
+  document.addEventListener('DOMContentLoaded', initBadge);
+}

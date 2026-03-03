@@ -24,3 +24,26 @@ ytd-pivot-bar-item-renderer a[href="/shorts"],
 a[title="Shorts"][href="/shorts"] {
   display: none !important;
 }
+
+/* === 사용 시간 배지 === */
+#brainrot-savior-badge {
+  position: fixed;
+  top: 8px;
+  right: 300px;
+  z-index: 9999;
+  background: #282828;
+  color: #fff;
+  padding: 4px 12px;
+  border-radius: 16px;
+  font-size: 13px;
+  font-family: 'Roboto', Arial, sans-serif;
+  font-weight: 500;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  pointer-events: none;
+  opacity: 0.85;
+  transition: opacity 0.2s;
+}
+
+#brainrot-savior-badge:hover {
+  opacity: 1;
+}
