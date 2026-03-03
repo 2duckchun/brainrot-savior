@@ -1,1 +1,26 @@
-/* Brainrot Savior */
+/* === Shorts 차단 === */
+
+/* 홈 피드의 Shorts 셸프 */
+ytd-rich-shelf-renderer[is-shorts],
+ytd-reel-shelf-renderer {
+  display: none !important;
+}
+
+/* 사이드바의 Shorts 탭 */
+ytd-mini-guide-entry-renderer a[title="Shorts"],
+ytd-guide-entry-renderer a[title="Shorts"] {
+  display: none !important;
+}
+
+/* 탐색/검색 결과의 Shorts */
+ytd-video-renderer [overlay-style="SHORTS"],
+ytd-grid-video-renderer [overlay-style="SHORTS"],
+ytd-rich-item-renderer [overlay-style="SHORTS"] {
+  display: none !important;
+}
+
+/* Shorts 탭 자체 (모바일 웹 대응 포함) */
+ytd-pivot-bar-item-renderer a[href="/shorts"],
+a[title="Shorts"][href="/shorts"] {
+  display: none !important;
+}
