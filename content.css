@@ -31,15 +31,16 @@ a[title="Shorts"][href="/shorts"] {
   top: 8px;
   right: 300px;
   z-index: 9999;
-  background: #282828;
-  color: #fff;
+  background: #EEF2FF;
+  color: #4F46E5;
   padding: 4px 12px;
   border-radius: 16px;
   font-size: 13px;
   font-family: 'Roboto', Arial, sans-serif;
   font-weight: 500;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  border: 1px solid #E0E7FF;
   pointer-events: none;
-  opacity: 0.85;
+  opacity: 0.9;
   transition: opacity 0.2s;
 }
